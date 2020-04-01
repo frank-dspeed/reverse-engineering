@@ -37,4 +37,25 @@ function timing(resource) {
 }
 ```
 
+
+fetch
+```js
+function timing(url) {
+  const requestToBeCached = new Request('timing')
+  let start, end
+  return fetch(url,{
+    'credentials': 'include',
+    'mode': 'no-cors'
+  }).then(res=>{
+     start = performance.now();
+     return cache.put(requestToBeCached,res.clone())
+  }).then(()=>end=performance.now()).then(()=>start-end)
+}
+```
 can also remote tell us if user is logged in masure load time of login page
+
+detect facebook age. via custom filter posts.
+
+- https://mths.be/bva
+- https://mths.be/buy
+
