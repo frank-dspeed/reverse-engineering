@@ -20,4 +20,21 @@ function timing(resource) {
 timing('https').then(console.log) //=> 1000uq
 ```
 
+Video
+```js
+function timing(resource) {
+  return new Promise((res)=>{
+  const image = new Video()
+  let start;
+  image.onsuspend = function() { start = performance.now(); }
+  image.onerror = function() {
+    const end = performance.now()
+    const distance = end - start
+    res(distance)
+  }
+  image.src = resource
+  })
+}
+```
+
 can also remote tell us if user is logged in masure load time of login page
