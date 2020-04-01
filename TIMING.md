@@ -19,3 +19,5 @@ function timing(resource) {
 }
 timing('https').then(console.log) //=> 1000uq
 ```
+
+can also remote tell us if user is logged in masure load time of login page
